@@ -9,9 +9,19 @@ datasource db {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model tShirts {
-  ID   Int?
-  Logo String? @db.VarChar(50)
+model Employee {
+  emp_id            Int       @id @default(autoincrement())
+  first_name        String
+  last_name         String
+  dob               DateTime
+  gender            String
+  personal_email    String
+  work_email        String
+  contact_no        String
+  address           String
+  hire_date         DateTime
+  employment_status String
+  employment_type   String
 
-  @@ignore
+  @@map("Employee") // Maps the Prisma model to the exact SQL table name
 }
