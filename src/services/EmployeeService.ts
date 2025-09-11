@@ -1,32 +1,39 @@
+import { BaseService } from "../services/Base.service";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export class EmployeeService {
-  async getAllEmployees() {
-    return prisma.employee.findMany();
+class EmployeeRepository {
+  private model: any;
+  constructor() {
+    this.model = prisma.employee;
   }
 
-  async getEmployeeById(emp_id: number) {
-    return prisma.employee.findUnique({
-      where: { emp_id },
-    });
+  getAll() {
+    return this.model.findMany();
   }
 
-  async createEmployee(data: any) {
-    return prisma.employee.create({ data });
+  getById(emp_id: number) {
+    return this.model.findUnique({ where: { emp_id } });
   }
 
-  async updateEmployee(emp_id: number, data: any) {
-    return prisma.employee.update({
-      where: { emp_id },
-      data,
-    });
+  create(data: any) {
+    return this.model.create({ data });
   }
 
-  async deleteEmployee(emp_id: number) {
-    return prisma.employee.delete({
-      where: { emp_id },
-    });
+  update(emp_id: number, data: any) {
+    return this.model.update({ where: { emp_id }, data });
   }
+
+  delete(emp_id: number) {
+    return this.model.delete({ where: { emp_id } });
+  }
+}
+
+export class EmployeeService extends BaseService<any> {
+  constructor() {
+    super(new EmployeeRepository());
+  }
+
+  // Employee-specific logic can go here
 }

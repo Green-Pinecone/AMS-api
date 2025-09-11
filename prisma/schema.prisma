@@ -9,6 +9,7 @@ datasource db {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+
 model Employee {
   emp_id            Int       @id @default(autoincrement())
   first_name        String
