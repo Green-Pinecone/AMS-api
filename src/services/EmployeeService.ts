@@ -34,6 +34,4 @@ export class EmployeeService extends BaseService<any> {
   constructor() {
     super(new EmployeeRepository());
   }
-
-  // Employee-specific logic can go here
 }

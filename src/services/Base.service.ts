@@ -1,8 +1,9 @@
 import { IBaseService } from "./Interfaces/IBase.service";
+import { IBaseRepository } from "../repositories/Interfaces/IBaseRepository";
 export class BaseService<T> implements IBaseService<T> {
   protected repository: any;
 
-  constructor(repository: any) {
+  constructor(repository: IBaseRepository<T>) {
     this.repository = repository;
   }
 
