@@ -8,5 +8,4 @@ export class EmployeeRepository extends BaseRepository<any> {
     super(prisma.employee);
   }
 
-  
 }
