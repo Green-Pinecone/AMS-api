@@ -1,5 +1,5 @@
 import { IBaseService } from "./Interfaces/IBase.service";
-import { IBaseRepository } from "../repositories/Interfaces/IBaseRepository";
+import { IBaseRepository } from "../repositories/Interfaces/IBase.repository";
 export class BaseService<T> implements IBaseService<T> {
   protected repository: any;
 

@@ -10,7 +10,7 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 
-model Employee {
+model MasterEmployee {
   emp_id            Int       @id @default(autoincrement())
   first_name        String
   last_name         String
@@ -24,5 +24,13 @@ model Employee {
   employment_status String
   employment_type   String
 
-  @@map("Employee") // Maps the Prisma model to the exact SQL table name
+  @@map("Employee") 
+}
+
+model MasterDepartment {
+  dept_id     Int     @id @default(autoincrement())
+  head_emp_id String
+  dept_name   String  @unique
+  location    String
+  budget      Float
 }

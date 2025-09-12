@@ -1,5 +1,5 @@
 import express from "express";
-import employeeRouter from "./routes/Employee.routes";
+import employeeRouter from "./routes/MasterEmployee.routes";
 
 const app = express();
 app.use(express.json());

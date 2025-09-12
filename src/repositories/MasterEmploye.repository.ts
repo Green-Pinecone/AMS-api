@@ -1,4 +1,4 @@
-import { BaseRepository } from "./BaseRepository";
+import { BaseRepository } from "./Base.repository";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();

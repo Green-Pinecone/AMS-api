@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IBaseRepository } from "./Interfaces/IBaseRepository";
+import { IBaseRepository } from "./Interfaces/IBase.repository";
 
 export class BaseRepository<T> implements IBaseRepository<T> {
   protected prisma: PrismaClient;
