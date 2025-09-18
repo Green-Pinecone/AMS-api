@@ -8,12 +8,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-
 model MasterEmployee {
-  emp_id            Int       @id @default(autoincrement())
   first_name        String
   last_name         String
+  emp_id            Int      @id(map: "Employee_pkey") @default(autoincrement())
   dob               DateTime
   gender            String
   personal_email    String
@@ -23,14 +21,12 @@ model MasterEmployee {
   hire_date         DateTime
   employment_status String
   employment_type   String
-
-  @@map("Employee") 
 }
 
 model MasterDepartment {
-  dept_id     Int     @id @default(autoincrement())
+  dept_id     Int    @id @default(autoincrement())
   head_emp_id String
-  dept_name   String  @unique
+  dept_name   String @unique
   location    String
   budget      Float
 }

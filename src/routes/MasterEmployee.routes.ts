@@ -1,7 +1,5 @@
 import { Router } from "express";
 import { EmployeeController } from "../controllers/MasterEmployee.controller";
-import { EmployeeService } from "../services/MasterEmployee.service";
-import { EmployeeRepository } from "../repositories/MasterEmploye.repository";
 
 const employeeRouter = Router();
 
