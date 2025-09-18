@@ -68,7 +68,7 @@ export class EmployeeController {
       if (isNaN(emp_id)) {
         return res.status(400).json({ error: "Invalid employee ID" });
       }
-
+      await employeeService.delete(emp_id);
       res.status(204).send();
     } catch (err) {
       console.error("Error in delete:", err);
